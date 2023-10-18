@@ -1,3 +1,11 @@
+*{
+  
+    font-family: 'Audiowide', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Proza Libre', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Young Serif', serif;;
+}
 .calculatebox{
     flex-wrap: wrap;
 }

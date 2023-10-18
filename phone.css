@@ -1,0 +1,19 @@
+.calculatebox{
+    flex-wrap: wrap;
+}
+.innerbox{
+    height: 377px;
+    width: 69%;
+}
+.innerbox input{
+    width:392px ;
+    padding: 14px;
+    margin: 27px;
+    font-size: 14px;
+}
+.box h1{
+    font-size: 40px;
+}
+.resultbox p{
+    font-size: 17px;
+}

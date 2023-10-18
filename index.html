@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Kanit&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" media="screen and (max-width:700px)" href="phone.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box">
+            <h1>~Age-o-Meter~</h1>
+            <div class="innerbox">
+                <div class="calculatebox">
+                    <h3>Enter your <br><span>Date Of Birth :</span></h3>
+                    <input type="date" id='date'>
+                    <button onclick="calculateage()">calculate</button>
+                </div>
+                <div class="resultbox">
+                    <p id="result"></p>
+                </div>
+               
+            </div>
+            <footer>MADE BY SNIKDHENDU PRAMANIK</footer>
+        </div>
+        
+    </div>
+   
+
+    <script>
+        let userInput = document.getElementById('date');
+        userInput.max = new Date().toISOString().split('T')[0]; // To disable future dates
+    
+        function calculateage() {
+            let dob = new Date(userInput.value); // Take user input as DOB
+            let d1 = dob.getDate();
+            let m1 = dob.getMonth() + 1; // Add 1 as month count starts from 0
+            let y1 = dob.getFullYear();
+    
+            let today = new Date(); // Get the current date
+            let d2 = today.getDate();
+            let m2 = today.getMonth() + 1;
+            let y2 = today.getFullYear();
+    
+            let y3, m3, d3;
+            y3 = y2 - y1;
+    
+            if (m2 >= m1) {
+                m3 = m2 - m1;
+            } else {
+                y3--;
+                m3 = 12 + m2 - m1;
+            }
+            if (d2 >= d1) {
+                d3 = d2 - d1;
+            } else {
+                m3--;
+                d3 = getdaysinmonth(d1, y1) + d2 - d1;
+            }
+            if (m3 < 0) {
+                m3 = 11;
+                y3--;
+            }
+    
+            console.log(`y3, m3, d3`);
+            let result = document.getElementById('result');
+            result.innerHTML = `You are ${y3} years, ${m3} months, ${d3} days old`;
+        }
+    
+        function getdaysinmonth(year, month) {
+            return new Date(year, month, 0).getDate();
+        }
+    </script>
+    
+</body>
+</html>
